@@ -22,5 +22,5 @@ Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(
     Route::resource('admin/kategori', \App\Http\Controllers\KategoriController::class)->except(['create', 'show', 'edit']);
     
     // Berita Routes
-    Route::resource('admin/berita', \App\Http\Controllers\BeritaController::class);
+    Route::resource('admin/berita', \App\Http\Controllers\BeritaController::class)->except(['show']);
 });
