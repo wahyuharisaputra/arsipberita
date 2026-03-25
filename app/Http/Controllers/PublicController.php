@@ -14,17 +14,17 @@ class PublicController extends Controller
         $query = Berita::with('kategori')->latest('tanggal_berita');
 
         if ($request->filled('kategori')) {
-            $query->where('kategori_id', $request->kategori);
+            $query->where('kategori_id', $request->input('kategori'));
         }
 
         if ($request->filled('tahun')) {
-            $query->whereYear('tanggal_berita', $request->tahun);
+            $query->whereYear('tanggal_berita', $request->input('tahun'));
         }
 
         if ($request->filled('q')) {
             $query->where(function($q) use ($request) {
-                $q->where('judul', 'like', '%'.$request->q.'%')
-                  ->orWhere('isi_berita', 'like', '%'.$request->q.'%');
+                $q->where('judul', 'like', '%'.$request->input('q').'%')
+                  ->orWhere('isi_berita', 'like', '%'.$request->input('q').'%');
             });
         }
 
