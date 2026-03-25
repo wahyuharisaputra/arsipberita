@@ -30,7 +30,7 @@ class PublicController extends Controller
 
         $beritas = $query->paginate(9)->withQueryString();
         $kategoris = Kategori::all();
-        $tahunList = Berita::selectRaw('YEAR(tanggal_berita) as tahun')->distinct()->orderBy('tahun', 'desc')->pluck('tahun');
+        $tahunList = range(date('Y'), 2000);
 
         return view('public.home', compact('beritas', 'kategoris', 'tahunList'));
     }
