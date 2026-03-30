@@ -7,7 +7,6 @@
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-4 text-center bg-white rounded-5 shadow-sm mb-5" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
     <div class="col-md-8 mx-auto my-5">
         <span class="badge bg-primary text-white rounded-pill px-3 py-2 mb-3 shadow-sm" style="font-weight: 600;">PORTAL TERPERCAYA</span>
-        <h1 class="display-4 fw-bold mb-3" style="letter-spacing: -1.5px; color: #0f172a;">Jelajahi Arsip Berita Digital</h1>
         <p class="lead fw-normal text-muted mb-4">Temukan ribuan artikel, opini, dan peristiwa penting yang aktual. Semuanya dirangkum dalam satu genggaman yang elegan.</p>
     </div>
 </div>
