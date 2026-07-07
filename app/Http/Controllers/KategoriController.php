@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Kategori;
+use Illuminate\Support\Facades\Storage;
 
 class KategoriController extends Controller
 {
@@ -38,9 +39,17 @@ class KategoriController extends Controller
 
     public function destroy($id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $kategori = Kategori::with('beritas')->findOrFail($id);
+        
+        // Hapus gambar pada berita terkait sebelum menghapus kategori (mencegah file sampah di storage)
+        foreach ($kategori->beritas as $berita) {
+            if ($berita->gambar) {
+                Storage::disk('public')->delete($berita->gambar);
+            }
+        }
+        
         $kategori->delete();
 
-        return redirect()->back()->with('success', 'Kategori berhasil dihapus.');
+        return redirect()->back()->with('success', 'Kategori dan berita terkait berhasil dihapus.');
     }
 }
